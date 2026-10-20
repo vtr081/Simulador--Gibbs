@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador Digital · Energia Livre de Gibbs</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topo">
+    <button type="button" id="btn-tema" class="tema" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">🌓</button>
+    <h1>⚗️ Energia Livre de Gibbs e Espontaneidade</h1>
+    <p class="formula">ΔG = ΔH − T · ΔS</p>
+  </header>
+
+  <main class="layout">
+
+    <section class="cartao" aria-labelledby="t-controles">
+      <h2 id="t-controles">Painel de Controle</h2>
+
+      <div class="campo">
+        <label for="in-dh">Entalpia ΔH <span class="un">kJ/mol</span></label>
+        <div class="linha">
+          <input type="range" id="sl-dh" min="-500" max="500" step="any" value="-92.2" aria-label="Entalpia ΔH (slider)">
+          <input type="number" id="in-dh" min="-500" max="500" step="any" value="-92.2">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="in-ds">Entropia ΔS <span class="un">J/(mol·K)</span></label>
+        <div class="linha">
+          <input type="range" id="sl-ds" min="-500" max="500" step="any" value="-198.7" aria-label="Entropia ΔS (slider)">
+          <input type="number" id="in-ds" min="-500" max="500" step="any" value="-198.7">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="in-t">Temperatura T <span class="un" id="t-un">K</span></label>
+        <div class="linha">
+          <input type="range" id="sl-t" min="0" max="1000" step="any" value="298.15" aria-label="Temperatura (slider)">
+          <input type="number" id="in-t" min="0" max="1000" step="any" value="298.15">
+        </div>
+        <div class="alterna" role="group" aria-label="Unidade de temperatura">
+          <button type="button" id="btn-k" aria-pressed="true">Kelvin (K)</button>
+          <button type="button" id="btn-c" aria-pressed="false">Celsius (°C)</button>
+        </div>
+      </div>
+
+      <h3>Predefinições rápidas</h3>
+      <div class="presets">
+        <button type="button" data-preset="sempre"><strong>Combustão do carbono</strong><small>Exotérmica · ΔS aumenta → sempre espontânea</small></button>
+        <button type="button" data-preset="nunca"><strong>Formação de O₃</strong><small>Endotérmica · ΔS diminui → nunca espontânea</small></button>
+        <button type="button" data-preset="baixa"><strong>Síntese da amônia</strong><small>Exotérmica · ΔS diminui → só a baixa T</small></button>
+        <button type="button" data-preset="alta"><strong>N₂O₄ → 2 NO₂</strong><small>Endotérmica · ΔS aumenta → só a alta T</small></button>
+      </div>
+    </section>
+
+    <section class="cartao resultado" id="card-status" data-state="nonspontaneous" aria-labelledby="t-res" aria-live="polite">
+      <h2 id="t-res">Resultado</h2>
+      <p class="rotulo">Energia Livre de Gibbs</p>
+      <p class="dg"><span id="dg-valor">0,00</span> <span class="un">kJ/mol</span></p>
+      <p class="badge" id="status-badge">—</p>
+
+      <div class="medidor" aria-hidden="true">
+        <div class="medidor-fill" id="meter-fill"></div>
+        <span class="medidor-zero"></span>
+      </div>
+      <div class="medidor-leg" aria-hidden="true"><span>ΔG &lt; 0 · espontâneo</span><span>ΔG &gt; 0 · não espontâneo</span></div>
+
+      <p class="rotulo">Temperatura de equilíbrio (T<sub>eq</sub> = ΔH / ΔS)</p>
+      <p class="teq" id="teq-valor">—</p>
+      <p class="nota" id="teq-nota"></p>
+    </section>
+
+    <section class="cartao explicacao" aria-labelledby="t-exp">
+      <h2 id="t-exp">Explicação didática</h2>
+      <div id="expl-texto"></div>
+      <p class="calculo" id="calc-linha"></p>
+    </section>
+  </main>
+
+  <footer class="rodape">Dados das predefinições são valores aproximados a 298 K. para fins didáticos.</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
