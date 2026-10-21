@@ -1,0 +1,18 @@
+Para que serve
+Este simulador mostra como a Energia Livre de Gibbs (ΔG = ΔH − T·ΔS) determina se uma reação química acontece sozinha, ou seja, se é espontânea. Ele deixa o estudante variar a entalpia (ΔH), a entropia (ΔS) e a temperatura (T) e ver o efeito no ΔG em tempo real. Assim dá para entender na prática por que algumas reações ocorrem sempre, outras nunca, e outras só em temperaturas baixas ou altas.
+
+A Energia Livre de Gibbs (Δ G) é uma grandeza termodinâmica que mede a energia disponível para realizar trabalho útil e prevê a espontaneidade de uma reação química a pressão e temperatura constantes.
+
+Como usar
+Ajuste ΔH (kJ/mol), ΔS (J/mol·K) e T com os sliders ou digitando nos campos. A temperatura pode ser exibida em Kelvin ou Celsius pelo botão correspondente.
+
+Se preferir, clique em uma das predefinições (combustão do carbono, formação de O₃, síntese da amônia ou N₂O₄ → 2 NO₂) para carregar uma reação real.
+
+Veja o valor de ΔG em kJ/mol. O card fica verde quando a reação é espontânea (ΔG < 0), vermelho quando não é espontânea (ΔG > 0) e amarelo quando está em equilíbrio (ΔG = 0).
+
+Observe a temperatura de equilíbrio (T_eq = ΔH / ΔS), que é o ponto em que a espontaneidade se inverte. Nas reações que dependem da temperatura, arraste T para cima e para baixo dela e veja o resultado mudar.
+
+Leia o quadro “Explicação didática”, que traduz o resultado em linguagem simples e mostra o cálculo passo a passo.
+
+Use o botão 🌓 para alternar entre o modo claro e o escuro.
+
